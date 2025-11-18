@@ -1,0 +1,47 @@
+[
+    {
+        "id": "REG-20251118-5F69C1E2",
+        "timestamp": "2025-11-18 12:26:30",
+        "ip_address": "::1",
+        "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/139.0.0.0 Safari\/537.36 OPR\/123.0.0.0",
+        "form_data": {
+            "firstName": "Yuvaneeth",
+            "lastName": "clasher",
+            "dateOfBirth": "2005-03-03",
+            "gender": "male",
+            "nationality": "Indian",
+            "idNumber": "37493",
+            "email": "yuvaneeth4444@gmail.com",
+            "phone": "69568485420958",
+            "address": "dnasbdkjSHDIASKASDSAKASHKASJDSD",
+            "city": ",FMASKLDJSAKJHDSA",
+            "state": "KJHDKJASHDIUSAD",
+            "zipCode": "574I5IO",
+            "country": "IN",
+            "education": "high-school",
+            "fieldOfStudy": "NMFJAS",
+            "institution": "SDNASDHASUFYKJA",
+            "graduationYear": 2016,
+            "workExperience": "6-10",
+            "motivation": "KJKLASKFJADSHFASHF,DAFMDA,FBADHJFGASUASMNBANMFHASJFAS FASVGHAS",
+            "termsAgreement": true,
+            "privacyAgreement": true,
+            "dataProcessing": true,
+            "alternatePhone": "58349483209",
+            "currentPosition": "HDJSHFAJSHF",
+            "skills": "BDJSHKJADFLDSKF.DFMD,MFHADIFUASF",
+            "newsletter": true
+        },
+        "uploaded_files": [
+            {
+                "original_name": "OIP.jpeg",
+                "safe_name": "OIP_1763468790.jpeg",
+                "file_path": "uploads\/OIP_1763468790.jpeg",
+                "file_size": 19947,
+                "file_type": "jpeg",
+                "upload_time": "2025-11-18 12:26:30"
+            }
+        ],
+        "status": "pending"
+    }
+]

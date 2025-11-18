@@ -1,0 +1,53 @@
+# Environment Configuration for Registration Portal
+# Copy this file to .env and update with your settings
+
+# Application Settings
+APP_NAME="Registration Portal"
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://yourdomain.com
+
+# Database Configuration (Optional - uses JSON by default)
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=registration_portal
+DB_USERNAME=your_db_username
+DB_PASSWORD=your_db_password
+
+# Email Configuration
+MAIL_DRIVER=mail
+MAIL_HOST=smtp.yourdomain.com
+MAIL_PORT=587
+MAIL_USERNAME=noreply@yourdomain.com
+MAIL_PASSWORD=your_email_password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=noreply@yourdomain.com
+MAIL_FROM_NAME="Registration Portal"
+
+# Admin Settings
+ADMIN_EMAIL=admin@yourdomain.com
+ADMIN_NAME="Administrator"
+
+# Security Settings
+ENCRYPTION_KEY=base64:your-32-character-encryption-key-here
+SESSION_LIFETIME=120
+
+# File Upload Settings
+UPLOAD_MAX_SIZE=10485760
+UPLOAD_PATH=uploads/
+
+# Feature Flags
+ENABLE_EMAIL_NOTIFICATIONS=true
+ENABLE_FILE_UPLOADS=true
+ENABLE_AUTO_SAVE=true
+ENABLE_RATE_LIMITING=true
+
+# Third-party Services
+GOOGLE_ANALYTICS_ID=
+RECAPTCHA_SITE_KEY=
+RECAPTCHA_SECRET_KEY=
+
+# Backup Settings
+BACKUP_ENABLED=true
+BACKUP_RETENTION_DAYS=30

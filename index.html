@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Registration Portal | Professional Application Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="description" content="Secure online registration form with instant processing and confirmation">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Registration Portal</h1>
+            </div>
+            <p class="subtitle">Complete your application in minutes</p>
+        </header>
+
+        <!-- Progress Indicator -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <i class="fas fa-user"></i>
+                    <span>Personal</span>
+                </div>
+                <div class="step" data-step="2">
+                    <i class="fas fa-phone"></i>
+                    <span>Contact</span>
+                </div>
+                <div class="step" data-step="3">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Education</span>
+                </div>
+                <div class="step" data-step="4">
+                    <i class="fas fa-check"></i>
+                    <span>Review</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Registration Form -->
+        <main class="main-content">
+            <form id="registrationForm" action="process-simple.php" method="POST" enctype="multipart/form-data" novalidate>
+
+                <!-- Step 1: Personal Information -->
+                <div class="form-section active" id="step1">
+                    <h2><i class="fas fa-user"></i> Personal Information</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName">
+                                <i class="fas fa-user"></i>
+                                First Name *
+                            </label>
+                            <input type="text" id="firstName" name="firstName" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">
+                                <i class="fas fa-user"></i>
+                                Last Name *
+                            </label>
+                            <input type="text" id="lastName" name="lastName" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dateOfBirth">
+                                <i class="fas fa-calendar-alt"></i>
+                                Date of Birth *
+                            </label>
+                            <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">
+                                <i class="fas fa-venus-mars"></i>
+                                Gender *
+                            </label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                                <option value="prefer-not-to-say">Prefer not to say</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nationality">
+                                <i class="fas fa-flag"></i>
+                                Nationality *
+                            </label>
+                            <input type="text" id="nationality" name="nationality" required>
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Contact Information -->
+                <div class="form-section" id="step2">
+                    <h2><i class="fas fa-address-book"></i> Contact Information</h2>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i>
+                                Email Address *
+                            </label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">
+                                <i class="fas fa-phone"></i>
+                                Phone Number *
+                            </label>
+                            <input type="tel" id="phone" name="phone" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="alternatePhone">
+                                <i class="fas fa-phone-alt"></i>
+                                Alternate Phone
+                            </label>
+                            <input type="tel" id="alternatePhone" name="alternatePhone">
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="address">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Street Address *
+                            </label>
+                            <input type="text" id="address" name="address" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">
+                                <i class="fas fa-city"></i>
+                                City *
+                            </label>
+                            <input type="text" id="city" name="city" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="state">
+                                <i class="fas fa-map"></i>
+                                State/Province *
+                            </label>
+                            <input type="text" id="state" name="state" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="zipCode">
+                                <i class="fas fa-mail-bulk"></i>
+                                ZIP/Postal Code *
+                            </label>
+                            <input type="text" id="zipCode" name="zipCode" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="country">
+                                <i class="fas fa-globe"></i>
+                                Country *
+                            </label>
+                            <select id="country" name="country" required>
+                                <option value="">Select Country</option>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="AU">Australia</option>
+                                <option value="DE">Germany</option>
+                                <option value="FR">France</option>
+                                <option value="IN">India</option>
+                                <option value="JP">Japan</option>
+                                <option value="CN">China</option>
+                                <option value="BR">Brazil</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Education & Professional Information -->
+                <div class="form-section" id="step3">
+                    <h2><i class="fas fa-graduation-cap"></i> Education & Professional Information</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="education">
+                                <i class="fas fa-university"></i>
+                                Highest Education Level *
+                            </label>
+                            <select id="education" name="education" required>
+                                <option value="">Select Education Level</option>
+                                <option value="high-school">High School Diploma</option>
+                                <option value="associate">Associate Degree</option>
+                                <option value="bachelor">Bachelor's Degree</option>
+                                <option value="master">Master's Degree</option>
+                                <option value="doctorate">Doctorate/PhD</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fieldOfStudy">
+                                <i class="fas fa-book"></i>
+                                Field of Study *
+                            </label>
+                            <input type="text" id="fieldOfStudy" name="fieldOfStudy" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="institution">
+                                <i class="fas fa-school"></i>
+                                Institution Name *
+                            </label>
+                            <input type="text" id="institution" name="institution" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="graduationYear">
+                                <i class="fas fa-calendar-check"></i>
+                                Graduation Year *
+                            </label>
+                            <select id="graduationYear" name="graduationYear" required>
+                                <option value="">Select Year</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="workExperience">
+                                <i class="fas fa-briefcase"></i>
+                                Work Experience *
+                            </label>
+                            <select id="workExperience" name="workExperience" required>
+                                <option value="">Select Experience</option>
+                                <option value="0-1">0-1 years</option>
+                                <option value="2-5">2-5 years</option>
+                                <option value="6-10">6-10 years</option>
+                                <option value="11-15">11-15 years</option>
+                                <option value="16+">16+ years</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="currentPosition">
+                                <i class="fas fa-user-tie"></i>
+                                Current Position
+                            </label>
+                            <input type="text" id="currentPosition" name="currentPosition">
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="skills">
+                                <i class="fas fa-tools"></i>
+                                Skills & Competencies
+                            </label>
+                            <textarea id="skills" name="skills" rows="3" placeholder="List your key skills separated by commas"></textarea>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="motivation">
+                                <i class="fas fa-lightbulb"></i>
+                                Motivation for Application *
+                            </label>
+                            <textarea id="motivation" name="motivation" rows="4" placeholder="Tell us why you are interested in this opportunity" required></textarea>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="documents">
+                                <i class="fas fa-file-upload"></i>
+                                Upload Documents (CV/Resume, Certificates)
+                            </label>
+                            <input type="file" id="documents" name="documents[]" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                            <div class="file-upload-hint">
+                                <i class="fas fa-info-circle"></i> Accepted formats: PDF, DOC, DOCX, JPG, PNG (Max 10MB per file)
+                            </div>
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Review & Agreement -->
+                <div class="form-section" id="step4">
+                    <h2><i class="fas fa-check-circle"></i> Review & Agreement</h2>
+
+                    <div class="review-section">
+                        <h3>Please review your information before submitting</h3>
+                        <div class="review-content" id="reviewContent">
+                            <!-- Review content will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="agreement-section">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="termsAgreement" name="termsAgreement" required>
+                            <label for="termsAgreement">
+                                <i class="fas fa-file-contract"></i>
+                                I agree to the <a href="#" class="terms-link">Terms and Conditions</a> *
+                            </label>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="privacyAgreement" name="privacyAgreement" required>
+                            <label for="privacyAgreement">
+                                <i class="fas fa-shield-alt"></i>
+                                I agree to the <a href="#" class="privacy-link">Privacy Policy</a> *
+                            </label>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="dataProcessing" name="dataProcessing" required>
+                            <label for="dataProcessing">
+                                <i class="fas fa-database"></i>
+                                I consent to the processing of my personal data for application purposes *
+                            </label>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">
+                                <i class="fas fa-envelope-open-text"></i>
+                                I would like to receive updates and newsletters
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+
+                    <div class="nav-spacer"></div>
+
+                    <button type="button" class="btn btn-primary" id="nextBtn">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+
+                    <button type="submit" class="btn btn-success" id="submitBtn" style="display: none;">
+                        <i class="fas fa-paper-plane"></i> Submit Application
+                    </button>
+                </div>
+
+                <!-- Loading Indicator -->
+                <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Processing your application...</p>
+                    </div>
+                </div>
+            </form>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Registration Portal. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-file-contract"></i> Terms</a>
+                    <a href="#"><i class="fas fa-shield-alt"></i> Privacy</a>
+                    <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                    <a href="#"><i class="fas fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
