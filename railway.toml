@@ -1,0 +1,14 @@
+# Railway Deployment Configuration
+
+# Build Configuration
+[build]
+  builder = "nixpacks"
+
+# Start Command
+[start]
+  cmd = "php -S 0.0.0.0:$PORT index.php"
+
+# Environment Variables
+[env]
+  APP_ENV = "production"
+  APP_DEBUG = "false"

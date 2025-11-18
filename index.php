@@ -1,8 +1,10 @@
 <?php
 /**
- * Entry point for the Registration Portal
- * This file handles basic routing and serves the main application
+ * Entry point for the Registration Portal on Railway
  */
+
+// Get the port from environment (Railway sets this)
+$port = getenv('PORT') ?: 8000;
 
 // Set timezone
 date_default_timezone_set('UTC');
@@ -25,25 +27,45 @@ switch ($path) {
     case '/':
     case '/index.html':
         // Serve the main registration form
-        include 'public/index.html';
+        if (file_exists('index.html')) {
+            include 'index.html';
+        } else {
+            include 'public/index.html';
+        }
         break;
     
     case '/styles.css':
         header('Content-Type: text/css');
-        include 'public/styles.css';
+        if (file_exists('styles.css')) {
+            include 'styles.css';
+        } else {
+            include 'public/styles.css';
+        }
         break;
     
     case '/script.js':
         header('Content-Type: application/javascript');
-        include 'public/script.js';
+        if (file_exists('script.js')) {
+            include 'script.js';
+        } else {
+            include 'public/script.js';
+        }
         break;
     
     case '/process-simple.php':
-        include 'public/process-simple.php';
+        if (file_exists('process-simple.php')) {
+            include 'process-simple.php';
+        } else {
+            include 'public/process-simple.php';
+        }
         break;
     
     case '/success.php':
-        include 'public/success.php';
+        if (file_exists('success.php')) {
+            include 'success.php';
+        } else {
+            include 'public/success.php';
+        }
         break;
     
     default:
@@ -52,16 +74,19 @@ switch ($path) {
         echo '<!DOCTYPE html>
         <html>
         <head>
-            <title>Page Not Found</title>
+            <title>Page Not Found - Registration Portal</title>
             <style>
-                body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+                body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f8f9fa; }
                 h1 { color: #e74c3c; }
+                .container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
             </style>
         </head>
         <body>
-            <h1>404 - Page Not Found</h1>
-            <p>The page you are looking for does not exist.</p>
-            <a href="/">Return to Registration Portal</a>
+            <div class="container">
+                <h1>404 - Page Not Found</h1>
+                <p>The page you are looking for does not exist.</p>
+                <a href="/" style="background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Return to Registration Portal</a>
+            </div>
         </body>
         </html>';
         break;
