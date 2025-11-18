@@ -1,0 +1,14 @@
+version: 2
+
+services:
+  web:
+    name: registration-portal
+    type: web
+    runtime: php
+    plan: starter
+    healthcheckPath: /
+    envVars:
+      - key: PHP_VERSION
+        value: "8.0"
+      - key: APP_ENV  
+        value: production

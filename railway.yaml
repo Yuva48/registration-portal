@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: registration-portal
+    env: php
+    plan: starter
+    buildCommand: composer install --no-dev --optimize-autoloader
+    startCommand: php -S 0.0.0.0:$PORT index.php
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: PHP_VERSION
+        value: 8.0
