@@ -49,7 +49,6 @@ function loadSubmissionData($submissionId) {
     
     return null;
 }
-}
 
 function formatFieldValue($key, $value) {
     switch ($key) {
