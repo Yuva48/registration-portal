@@ -1,10 +1,5 @@
 {
-    "name": "registration-portal/app",
-    "description": "Professional Registration Portal",
-    "version": "1.0.0",
     "require": {
-        "php": ">=8.0",
-        "ext-json": "*",
-        "ext-mbstring": "*"
+        "php": "^7.4||^8.0"
     }
 }
