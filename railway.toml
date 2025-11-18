@@ -1,14 +1,12 @@
-# Railway Deployment Configuration
-
-# Build Configuration
+# Railway Configuration for PHP Application
 [build]
   builder = "nixpacks"
 
-# Start Command
-[start]
-  cmd = "php -S 0.0.0.0:$PORT index.php"
+[deploy]
+  healthcheckPath = "/"
+  restartPolicyType = "on_failure"
 
-# Environment Variables
 [env]
+  PORT = "8000"
   APP_ENV = "production"
   APP_DEBUG = "false"

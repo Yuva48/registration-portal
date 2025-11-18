@@ -1,0 +1,47 @@
+🚀 RAILWAY DEPLOYMENT - STEP BY STEP
+===================================
+
+Railway.app is perfect for your PHP application! Here's exactly what to do:
+
+🎯 STEP 1: SIGN UP TO RAILWAY
+1. Railway.app is already open in your browser
+2. Click "Start a New Project"
+3. Sign up with GitHub (recommended)
+4. No credit card needed - $5 monthly free credit!
+
+🚀 STEP 2: DEPLOY YOUR APP
+1. Click "Deploy from GitHub repo"
+2. Connect your GitHub account if prompted
+3. Search and select: "registration-portal"
+4. Railway will auto-detect it's a PHP project
+5. Click "Deploy"
+
+⚡ STEP 3: WATCH IT GO LIVE
+- Railway automatically installs PHP
+- Sets up the web server
+- Deploys your application
+- Takes about 2-3 minutes
+
+🌟 YOUR LIVE URL WILL BE:
+https://registration-portal-production-XXXX.railway.app
+
+✅ RAILWAY FEATURES:
+- Auto PHP detection and setup
+- Built-in Composer support
+- $5 monthly credit (plenty for your app)
+- Automatic HTTPS
+- Custom domains
+- Environment variables
+- Database support
+- Easy scaling
+
+🎉 WHAT WORKS OUT OF THE BOX:
+- Your registration form
+- File uploads
+- Form validation
+- Success pages
+- All styling and design
+- Mobile responsiveness
+
+That's it! Railway will handle all the PHP configuration automatically.
+No build commands, no start commands - just deploy and go! 🎯
