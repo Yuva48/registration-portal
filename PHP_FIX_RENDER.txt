@@ -1,0 +1,46 @@
+🔧 RENDER PHP DEPLOYMENT FIX
+============================
+
+The error "php: command not found" means Render needs to be configured for PHP properly.
+
+🔄 SOLUTION - Update Your Render Service:
+
+1. GO TO YOUR RENDER DASHBOARD
+   - Click on your service
+   - Go to "Settings"
+
+2. UPDATE ENVIRONMENT:
+   - Environment: PHP (make sure this is selected)
+   - Runtime: PHP 8.1 or higher
+
+3. UPDATE BUILD/START COMMANDS:
+   
+   Build Command:
+   composer install --no-dev && mkdir -p data uploads && chmod 755 data uploads
+   
+   Start Command:
+   php -S 0.0.0.0:$PORT index.php
+
+4. ADD ENVIRONMENT VARIABLES:
+   - Add variable: PORT = 10000
+   - Add variable: APP_ENV = production
+
+5. REDEPLOY:
+   - Click "Save Changes"
+   - Go to "Manual Deploy"
+   - Click "Deploy latest commit"
+
+🎯 ALTERNATIVE - Try These Simpler Commands:
+
+Build Command:
+mkdir -p data uploads
+
+Start Command:
+php -S 0.0.0.0:$PORT index.php
+
+📝 IMPORTANT:
+- Make sure "Environment" is set to "PHP" in service settings
+- Use $PORT instead of 10000 in start command
+- If still failing, try selecting "Docker" environment and I'll create a Dockerfile
+
+💡 If PHP environment doesn't work, we can switch to Railway.app or create a Docker deployment.

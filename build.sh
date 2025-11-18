@@ -1,7 +1,12 @@
 #!/bin/bash
-# Render.com build script
+# Render.com build script for PHP
 
-echo "Starting Render deployment..."
+echo "Installing PHP and dependencies..."
+
+# Install Composer dependencies
+if [ -f "composer.json" ]; then
+    composer install --no-dev --optimize-autoloader
+fi
 
 # Create necessary directories
 mkdir -p data
