@@ -38,8 +38,7 @@
         "test": "phpunit",
         "lint": "php -l *.php",
         "security-check": "php security-check.php",
-        "start": "php -S 0.0.0.0:10000 index.php",
-        "build": "chmod +x build.sh && ./build.sh"
+        "start": "php -S 0.0.0.0:10000 index.php"
     },
     "config": {
         "optimize-autoloader": true,

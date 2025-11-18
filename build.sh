@@ -11,9 +11,4 @@ mkdir -p uploads
 chmod 755 data
 chmod 755 uploads
 
-# Install any PHP dependencies if composer.json exists
-if [ -f composer.json ]; then
-    composer install --no-dev --optimize-autoloader
-fi
-
 echo "Build completed successfully!"
