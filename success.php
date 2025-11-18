@@ -49,6 +49,7 @@ function loadSubmissionData($submissionId) {
     
     return null;
 }
+}
 
 function formatFieldValue($key, $value) {
     switch ($key) {
@@ -127,7 +128,7 @@ function formatFileSize($bytes) {
     return round(($bytes / pow($k, $i)), 2) . ' ' . $sizes[$i];
 }
 
-$formData = $submissionData['form_data'];
+$formData = $submissionData['data'] ?? [];
 $uploadedFiles = $submissionData['uploaded_files'] ?? [];
 ?>
 
