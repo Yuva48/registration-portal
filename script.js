@@ -501,35 +501,11 @@ $(document).ready(function() {
         // Show loading overlay
         showLoadingOverlay();
 
-        // Prepare form data
+        // Submit form normally (no AJAX)
         const formElement = document.getElementById('registrationForm');
-        const submitData = new FormData(formElement);
-
-        // Add timestamp
-        submitData.append('submissionTime', new Date().toISOString());
-
-        // Submit form
-        $.ajax({
-            url: 'process.php',
-            type: 'POST',
-            data: submitData,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                hideLoadingOverlay();
-                if (response.success) {
-                    // Redirect to success page
-                    window.location.href = `success.php?id=${response.submissionId}`;
-                } else {
-                    showErrorModal('Submission Failed', response.message || 'An error occurred while processing your application. Please try again.');
-                }
-            },
-            error: function(xhr, status, error) {
-                hideLoadingOverlay();
-                console.error('Submission error:', error);
-                showErrorModal('Network Error', 'Unable to submit your application. Please check your internet connection and try again.');
-            }
-        });
+        formElement.action = 'process-simple.php';
+        formElement.method = 'POST';
+        formElement.submit();
     }
 
     function showLoadingOverlay() {
