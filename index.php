@@ -1,9 +1,10 @@
 <?php
 /**
- * Entry point for the Registration Portal on Railway
+ * Registration Portal - Main Entry Point
+ * Optimized for Railway deployment
  */
 
-// Get the port from environment (Railway sets this)
+// Get the port from environment (Railway sets this automatically)
 $port = getenv('PORT') ?: 8000;
 
 // Set timezone
@@ -18,6 +19,14 @@ header('X-Content-Type-Options: nosniff');
 header('X-Frame-Options: DENY');
 header('X-XSS-Protection: 1; mode=block');
 
+// Create necessary directories
+if (!is_dir('data')) {
+    mkdir('data', 0755, true);
+}
+if (!is_dir('uploads')) {
+    mkdir('uploads', 0755, true);
+}
+
 // Get the requested path
 $request = $_SERVER['REQUEST_URI'];
 $path = parse_url($request, PHP_URL_PATH);
@@ -27,45 +36,25 @@ switch ($path) {
     case '/':
     case '/index.html':
         // Serve the main registration form
-        if (file_exists('index.html')) {
-            include 'index.html';
-        } else {
-            include 'public/index.html';
-        }
+        include 'index.html';
         break;
     
     case '/styles.css':
         header('Content-Type: text/css');
-        if (file_exists('styles.css')) {
-            include 'styles.css';
-        } else {
-            include 'public/styles.css';
-        }
+        include 'styles.css';
         break;
     
     case '/script.js':
         header('Content-Type: application/javascript');
-        if (file_exists('script.js')) {
-            include 'script.js';
-        } else {
-            include 'public/script.js';
-        }
+        include 'script.js';
         break;
     
     case '/process-simple.php':
-        if (file_exists('process-simple.php')) {
-            include 'process-simple.php';
-        } else {
-            include 'public/process-simple.php';
-        }
+        include 'process-simple.php';
         break;
     
     case '/success.php':
-        if (file_exists('success.php')) {
-            include 'success.php';
-        } else {
-            include 'public/success.php';
-        }
+        include 'success.php';
         break;
     
     default:
@@ -76,16 +65,18 @@ switch ($path) {
         <head>
             <title>Page Not Found - Registration Portal</title>
             <style>
-                body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f8f9fa; }
-                h1 { color: #e74c3c; }
+                body { font-family: Inter, Arial, sans-serif; text-align: center; padding: 50px; background: #f8f9fa; }
+                h1 { color: #e74c3c; margin-bottom: 20px; }
                 .container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+                .btn { background: #007bff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px; }
+                .btn:hover { background: #0056b3; }
             </style>
         </head>
         <body>
             <div class="container">
                 <h1>404 - Page Not Found</h1>
                 <p>The page you are looking for does not exist.</p>
-                <a href="/" style="background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Return to Registration Portal</a>
+                <a href="/" class="btn">Return to Registration Portal</a>
             </div>
         </body>
         </html>';
